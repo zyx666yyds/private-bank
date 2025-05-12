@@ -1,0 +1,26 @@
+spring:
+  cloud:
+    eureka:
+      discovery:
+        server-addr: 127.0.0.1:9001
+    gateway:
+      routes:
+        - id: advisor-service
+          uri: lb://advisor-service
+          predicates:
+            - Path=/api/advisor/**
+        - id: approval-service
+          uri: lb://approval-service
+          predicates:
+            - Path=/api/approval/**
+        - id: client-service
+          uri: lb://client-service
+          predicates:
+            - Path=/api/client/**
+  application:
+    name: gateway-service
+  main:
+    web-application-type: reactive
+server:
+  address: localhost
+  port: 9003

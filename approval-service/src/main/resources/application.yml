@@ -1,0 +1,12 @@
+server:
+  port: 9005
+  servlet:
+    context-path: /api/approval
+spring:
+  application:
+    name: approval-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.3.126:3306/private_bank?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: zyx
