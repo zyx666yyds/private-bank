@@ -4,6 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.chinasoft</groupId>
     <artifactId>private-bank</artifactId>
+    <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
     <name>private-bank</name>
     <description>private-bank</description>
@@ -14,6 +15,19 @@
         <spring-boot.version>2.6.13</spring-boot.version>
         <spring-cloud.version>2021.0.5</spring-cloud.version>
     </properties>
+    <modules>
+        <module>advisory-service</module>
+        <module>approval-service</module>
+        <module>auth-service</module>
+        <module>client-service</module>
+        <module>config-service</module>
+        <module>discovery-service</module>
+        <module>gateway-service</module>
+        <module>notification-service</module>
+        <module>portfolio-service</module>
+        <module>risk-service</module>
+        <module>trade-service</module>
+    </modules>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
