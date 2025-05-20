@@ -18,6 +18,11 @@ spring:
   application:
     name: discovery-service
 
+  security:
+    user:
+      name: admin
+      password: admin
+
 logging:
   level:
     root: debug

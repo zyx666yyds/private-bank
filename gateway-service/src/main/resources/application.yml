@@ -1,8 +1,11 @@
+eureka:
+  client:
+    service-url:
+        defaultZone: http://localhost:9001/eureka
+  instance:
+    prefer-ip-address: true
 spring:
   cloud:
-    eureka:
-      discovery:
-        server-addr: 127.0.0.1:9001
     gateway:
       routes:
         - id: advisor-service
