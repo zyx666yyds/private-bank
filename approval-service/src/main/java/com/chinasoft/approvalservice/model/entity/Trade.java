@@ -23,24 +23,19 @@ import org.hibernate.validator.constraints.Length;
 
 @Data
 @Entity
-public class Trade implements Serializable {
+public class Trade {
 
     /**
     * 交易流水号，格式TyyyyMMddnnnnnn，如T2025032300123
     */
     @Id
-    @NotBlank(message="[交易流水号，格式TyyyyMMddnnnnnn，如T2025032300123]不能为空")
-    @Size(max= 20,message="编码长度不能超过20")
-    @Length(max= 20,message="编码长度不能超过20")
-    @Column(name ="trade_id")
+    @Column(name = "trade_id", length = 20)
     private String tradeId;
 
     /**
     * 客户编号
     */
-    @NotBlank(message="[客户编号]不能为空")
-    @Size(max= 18,message="编码长度不能超过18")
-    @Length(max= 18,message="编码长度不能超过18")
+    @Column(name = "client_id", length = 12, nullable = false)
     private String clientId;
     /**
     * 产品编号，调仓交易可能为空
@@ -58,14 +53,12 @@ public class Trade implements Serializable {
     /**
     * 交易金额或数量
     */
-    @NotNull(message="[交易金额或数量]不能为空")
+    @Column(name = "amount", nullable = false)
     private BigDecimal amount;
     /**
     * 交易状态：待审批/审批中/已拒绝/已执行/失败
     */
-    @NotBlank(message="[交易状态：待审批/审批中/已拒绝/已执行/失败]不能为空")
-    @Size(max= 20,message="编码长度不能超过20")
-    @Length(max= 20,message="编码长度不能超过20")
+    @Column(name = "status", length = 20, nullable = false)
     private String status;
     /**
     * 交易创建时间
