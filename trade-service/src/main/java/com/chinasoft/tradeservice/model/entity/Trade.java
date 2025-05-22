@@ -17,21 +17,21 @@ public class Trade {
     @Id
     private String tradeId;
 
-    @Column(nullable = false, length = 18)
+    @Column()
     private String clientId;
 
-    @Column(nullable = false, length = 20)
+    @Column()
     private String productCode;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 20)
+    @Column()
     private TradeType type;
 
-    @Column(nullable = false, precision = 20, scale = 2)
+    @Column()
     private BigDecimal amount;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 20)
+    @Column()
     private TradeStatus status;
 
     @CreationTimestamp

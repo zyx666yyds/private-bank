@@ -9,4 +9,6 @@ public interface TradeService {
     Trade createTrade(TradeDTO request);
 
     List<Trade> queryTrades(String clientId, String status);
+
+    void updateTrade(Trade trade);
 }
