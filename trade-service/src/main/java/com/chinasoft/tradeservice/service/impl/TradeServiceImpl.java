@@ -25,7 +25,7 @@ public class TradeServiceImpl implements TradeService {
     @Override
     public Trade createTrade(TradeDTO tradeDTO) {
         if (tradeDTO.getType() == TradeType.REDEEM && tradeDTO.getAmount().signum() <= 0) {
-            throw new RuntimeException("赎回金额必须为正数");
+            throw new RuntimeException("金额必须为正数");
         }
         Trade trade = new Trade();
         trade.setTradeId(idGenerator.generateTradeId());
@@ -44,4 +44,13 @@ public class TradeServiceImpl implements TradeService {
         return tradeRepository.findByClientIdAndStatusOrderByCreateTimeDesc(clientId, TradeStatus.valueOf(status));
     }
 
+    @Override
+    public void updateTrade(Trade updateTrade) {
+        if (null == updateTrade.getTradeId() || updateTrade.getTradeId().isEmpty()) {
+            throw new RuntimeException("tradeId不能为空");
+        }
+        Trade trade = tradeRepository.findById(updateTrade.getTradeId()).orElseThrow(() -> new RuntimeException("tradeId不存在"));
+        trade.setStatus(updateTrade.getStatus());
+        tradeRepository.save(trade);
+    }
 }

@@ -1,6 +1,7 @@
 package com.chinasoft.tradeservice.controller;
 
 import com.chinasoft.bankcommon.common.BaseResponse;
+import com.chinasoft.bankcommon.common.ResultUtils;
 import com.chinasoft.tradeservice.model.dto.TradeDTO;
 import com.chinasoft.tradeservice.model.entity.Trade;
 import com.chinasoft.tradeservice.service.TradeService;
@@ -24,6 +25,12 @@ public class TradeController {
     @GetMapping("/trades")
     public BaseResponse queryTrades(@RequestParam String clientId,
                                     @RequestParam String status) {
-        return new BaseResponse(200, tradeService.queryTrades(clientId,status));
+        return new BaseResponse(200, tradeService.queryTrades(clientId, status));
+    }
+
+    @PutMapping("/trades")
+    public BaseResponse updateTradeStatus(@RequestBody Trade trade) {
+        tradeService.updateTrade(trade);
+        return ResultUtils.success(null);
     }
 }
