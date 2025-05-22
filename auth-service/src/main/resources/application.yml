@@ -1,7 +1,7 @@
 server:
   port: 9006
-  servlet:
-    context-path: /api/auth
+#  servlet:
+#    context-path: /api/auth
 spring:
   application:
     name: auth-service
