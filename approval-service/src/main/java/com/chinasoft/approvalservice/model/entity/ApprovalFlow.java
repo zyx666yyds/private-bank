@@ -10,7 +10,7 @@ import java.util.Date;
 @Entity
 @Data
 @Table(name = "approval_flow")
-public class ApprovalFlow implements Serializable {
+public class ApprovalFlow  {
     @Id
     @Column(name = "flow_id", length = 36)
     private String flowId;

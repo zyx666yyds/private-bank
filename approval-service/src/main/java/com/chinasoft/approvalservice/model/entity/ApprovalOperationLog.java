@@ -1,6 +1,8 @@
 package com.chinasoft.approvalservice.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -8,11 +10,13 @@ import java.util.Date;
 @Entity
 @Data
 @Table(name = "approval_operation_log")
+@ToString(exclude = {"approvalFlow","operator"})
 public class ApprovalOperationLog {
     @Id
     @Column(name = "log_id", length = 36)
     private String logId;
-    
+
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "flow_id", referencedColumnName = "flow_id", nullable = false)
     private ApprovalFlow approvalFlow;

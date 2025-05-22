@@ -67,14 +67,14 @@ public class ApprovalController {
         return ResultUtils.success(flow);
     }
 
-    @GetMapping("/flow/{flowId}/records")
+    @GetMapping("/flow/records/{flowId}")
     public BaseResponse<List<ApprovalRecord>> getApprovalRecords(@PathVariable String flowId) {
         ApprovalFlow flow = approvalFlowRepository.findById(flowId).get();
         List<ApprovalRecord> records = approvalService.getApprovalRecords(flow);
         return ResultUtils.success(records);
     }
 
-    @GetMapping("/flow/{flowId}/logs")
+    @GetMapping("/flow/logs/{flowId}")
     public BaseResponse<List<ApprovalOperationLog>> getOperationLogs(@PathVariable String flowId) {
         ApprovalFlow flow = approvalFlowRepository.findById(flowId).get();
         List<ApprovalOperationLog> logs = approvalService.getOperationLogs(flow);

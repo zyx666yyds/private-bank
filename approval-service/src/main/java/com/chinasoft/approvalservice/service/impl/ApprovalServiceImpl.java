@@ -74,9 +74,11 @@ public class ApprovalServiceImpl implements ApprovalService {
         record.setApprovalId(UUID.randomUUID().toString());
         record.setApprovalFlow(flow);
         record.setLevel(currentLevel);
+        record.setTradeId(flow.getTrade().getTradeId());
         record.setApprover(approver);
         record.setDecision("通过");
         record.setComment(comment);
+        record.setIsDeleted(0);
         record.setCreatedAt(new Date());
         record.setCreateTime(new Date());
         record.setUpdateTime(new Date());
@@ -114,8 +116,10 @@ public class ApprovalServiceImpl implements ApprovalService {
         record.setApprovalId(UUID.randomUUID().toString());
         record.setApprovalFlow(flow);
         record.setLevel(currentLevel);
+        record.setTradeId(flow.getTrade().getTradeId());
         record.setApprover(approver);
         record.setDecision("拒绝");
+        record.setIsDeleted(0);
         record.setComment(comment);
         record.setCreatedAt(new Date());
         record.setCreateTime(new Date());
