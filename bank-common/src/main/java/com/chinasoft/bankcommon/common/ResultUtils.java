@@ -7,13 +7,17 @@ package com.chinasoft.bankcommon.common;
  */
 public class ResultUtils {
 
+
+
     /**
      * 成功
      *
-     * @param data
      * @param <T>
      * @return
      */
+    
+    
+    
     public static <T> BaseResponse<T> success(T data) {
         return new BaseResponse<>(0, data, "ok");
     }
