@@ -20,6 +20,22 @@ spring:
           uri: lb://client-service
           predicates:
             - Path=/api/client/**
+        - id: notification-service
+          uri: lb://notification-service
+          predicates:
+            - Path=/api/notification/**
+        - id: portfolio-service
+          uri: lb://portfolio-service
+          predicates:
+            - Path=/api/portfolio/**
+        - id: risk-service
+          uri: lb://risk-service
+          predicates:
+            - Path=/api/risk/**
+        - id: trade-service
+          uri: lb://trade-service
+          predicates:
+            - Path=/api/trade/**
   application:
     name: gateway-service
   main:
