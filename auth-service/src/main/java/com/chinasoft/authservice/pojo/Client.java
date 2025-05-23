@@ -78,4 +78,7 @@ public class Client {
     @Column(name = "remarks")
     private String remarks;
 
+    @Column(name = "is_deleted")
+    private int isDeleted;
+
 }

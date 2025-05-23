@@ -38,6 +38,10 @@ public class ClientServiceImpl implements ClientService {
 //        client.setStatus(ClientStatus.NORMAL);
         client.setStatus("正常");
         client.setRegisterDate(LocalDateTime.now());
+        client.setIncomeLevel("0-50万");
+        client.setRiskLevel("保守型");
+        client.setRelationshipManagerId("U00012345678");
+        client.setIsDeleted(0);
 
         // 设置KYC到期时间为半年后
         LocalDateTime kycExpiryDate = LocalDateTime.now().plusMonths(6).withHour(23).withMinute(59).withSecond(59);
