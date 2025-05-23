@@ -19,5 +19,8 @@ public interface ClientService {
     Client deleteByClientname (String name);
     //按客户名模糊查询客户
     List<Client> findByNameLike(String name);
+    //按客户手机号查询客户
+    List<Client> findByPhoneNumber(String phoneNumber);
+
 }
 

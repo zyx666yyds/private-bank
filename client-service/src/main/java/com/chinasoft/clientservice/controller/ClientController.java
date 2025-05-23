@@ -69,4 +69,16 @@ public class ClientController {
         }
         return null;
     }
+    //手机号查询客户信息
+    @RequestMapping("/c1/findByPhoneNumber")
+    public BaseResponse findByPhoneNumber(@RequestBody String phoneNumber) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        Map<String, Object> map = mapper.readValue(phoneNumber, Map.class);
+        if (phoneNumber != null){
+            return  ResultUtils.success(clientService.findByPhoneNumber((String) map.get("phoneNumber")));
+        }else if (phoneNumber == null){
+            return ResultUtils.error(ErrorCode.BAD_REQUEST.getCode(),"查询失败");
+        }
+        return null;
+    }
 }

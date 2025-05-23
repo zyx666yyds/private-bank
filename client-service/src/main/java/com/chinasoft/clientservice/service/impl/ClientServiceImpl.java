@@ -52,4 +52,9 @@ public class ClientServiceImpl implements ClientService {
         return clientRepository.findByNameLike(name);
     }
 
+    @Override
+    public List<Client> findByPhoneNumber(String phoneNumber){
+        return clientRepository.findByPhoneNumber(phoneNumber);
+    }
+
 }
